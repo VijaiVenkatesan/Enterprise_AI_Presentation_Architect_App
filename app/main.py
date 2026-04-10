@@ -349,7 +349,22 @@ with st.sidebar:
             ctx = content_engine.get_model_context_window(selected_model)
             st.caption(f"Context window: {ctx:,} tokens")
 
+    # ── Help & Documentation ─────────────────────────────────────────────
     st.markdown('<hr style="border:none;height:1px;background:rgba(255,255,255,0.1);margin:15px 0;">', unsafe_allow_html=True)
+    with st.sidebar.expander("ℹ️ How to Use & Help"):
+        st.markdown("""
+        ### Quick Start Guide
+        1. **Upload Template**: Drag & drop a PPTX or Image in the 'Assets' tab.
+        2. **Set Prompt**: Enter your topic in the main text area.
+        3. **Toggle Engine**: Turn on **Gamma Atomizer** if you want automatic Narrative/Visual slide splits.
+        4. **Select Model**: Choose your preferred LLM (Llama-3 recommended).
+        5. **Generate**: Click the big generate button & wait for the progress bar.
+        
+        ### Pro Tips
+        - **Safe Top Margin**: The engine automatically enforces a **2.2" safe zone** to protect header branding.
+        - **Sterile Rendering**: Visual slides use 'Blank' layouts to ensure zero overlap.
+        - **Session Save**: Use the **💾 Save** button below to back up your progress as a JSON file.
+        """)
 
     # ── Session Management ───────────────────────────────────────────────
     st.markdown("### 💾 Session")
@@ -380,6 +395,12 @@ with st.sidebar:
             st.rerun()
         else:
             st.error("❌ Failed to load session")
+
+    # ── About Section ─────────────────────────────────────────────────────
+    st.markdown('<hr style="border:none;height:1px;background:rgba(255,255,255,0.1);margin:15px 0;">', unsafe_allow_html=True)
+    st.caption("🏗️ **Enterprise AI Presentation Architect v1.0**")
+    st.caption("Designed for 100% Layout Fidelity.")
+    st.markdown(f"[View on GitHub](https://github.com/VijaiVenkatesan/Enterprise_AI_Presentation_Architect_App)")
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
